@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>드라마 정보</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      line-height: 1.4;
+    }
+
+    h2, h3, span, a {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<h2 th:text="${drama.title}"/><br/>
+<iframe width="600" height="400" th:src="${drama.video}" frameborder="0" allowfullscreen></iframe><br/>
+<h3>개 요</h3> <span th:text="${drama.overview}"/><br/>
+<h3>방송사</h3> <span th:text="${drama.broadcast}"/><br/>
+<h3>배 우</h3> <span th:text="${drama.actor}"/><br/>
+<h3>장 르</h3> <span th:text="${drama.genre}"/><br/>
+<h3>감 독</h3> <a th:href="@{/director/{directorId}(directorId=${drama.director.directorId})}"><span th:text="${drama.director.name}"></span></a>
+<br/>
+<a href="javascript:history.back()">[뒤로가기]</a>
+
+</body>
+</html>

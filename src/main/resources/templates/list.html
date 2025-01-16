@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최신 인기 드라마</title>
+    <style>
+        .drama-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
+        }
+
+        .drama-item {
+            width: calc(20% - 20px);
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+       .search-filter-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-filter-container form {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<h2 style="font-size: 2em; text-align: center;">최신 인기 드라마</h2>
+
+<div class="search-filter-container">
+    <form action="/drama/search" method="get" style="display: inline;">
+        <input type="search" name="title" placeholder="제목 입력">
+        <button type="submit">검색</button>
+    </form>
+
+    <div id="genreFilter">
+        <form action="/drama/genre" method="get">
+            <select name="genre">
+                <option value="">장르 선택</option>
+                <th:block th:each="genre : ${genres}">
+                    <option th:value="${genre}" th:text="${genre}"></option>
+                </th:block>
+            </select>
+            <button type="submit">검색</button>
+        </form>
+    </div>
+</div>
+
+<div th:if="${errorMessage}">
+    <script th:inline="javascript">
+        alert(/*[[${errorMessage}]]*/);
+    </script>
+</div>
+
+<div class="drama-container">
+    <div class="drama-item" th:each="drama : ${dramas}">
+        <img th:src="${drama.image}" width="150" height="225"/></br>
+        <a th:href="@{/drama/{idx}(idx=${drama.idx})}">
+            <span th:text="${drama.title}"></span></a>
+        (<span th:text="${drama.time}"></span>)
+
+    </div>
+</div>
+
+</body>
+</html>
