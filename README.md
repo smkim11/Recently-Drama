@@ -1,5 +1,6 @@
 <h1>최신 인기 드라마의 정보를 확인 할 수 있는 웹사이트</h1>
 ![Image](https://github.com/user-attachments/assets/19f16d95-e894-4a58-80a7-73824eb18f4c)
+![Image](https://github.com/user-attachments/assets/3b70f51c-12cf-4382-aac4-2f894a1497b9)
 <h1>개요</h1>
 최근 5년간 인기 있었던 한국 드라마들의 주연 배우, 장르, 방영 시기 등의 정보와 해당 드라마를 제작한 감독의 정보를 확인할 수 있는 사이트 입니다.
 <h1>기능</h1>
